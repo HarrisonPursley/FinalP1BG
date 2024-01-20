@@ -67,7 +67,6 @@ game.preload = function () {
 game.create = function () {
     
     this.timer = -2000;
-    camera1 = this.cameras.add(0, 0, 656, 528).setZoom(.5);
     
     this.anims.create({
         key: 'zombaloididle',
@@ -228,6 +227,12 @@ game.create = function () {
     this.boss.setOrigin(0, 0);
     this.player = this.add.sprite(200, 417, 'player');
     this.player.setOrigin(0, 0);
+    this.victory = this.add.sprite(-1000, 300, 'victory');
+        this.victory.setOrigin(0, 0);
+    this.youdied = this.add.sprite(-1000, 300, 'youdied');
+        this.youdied.setOrigin(0, 0);
+    this.again = this.add.sprite(-1000, 300, 'again');
+        this.again.setOrigin(0, 0);
 };
 
 
@@ -236,6 +241,7 @@ game.update = function update(time, delta) {
     while (this.timer >= 5000) {
         pickAttack = game.rnd.integerInRange(0, 10);
         this.timer -= 5000;
+        this.again.setPosition(100,300);
     }
     if (keyShift.isDown) {
         this.player.anims.play('blocking', true);
@@ -243,18 +249,22 @@ game.update = function update(time, delta) {
         if (pickAttack > 5) {
             this.player.anims.play('blocked', true);
             console.log('Player blocked a strike');
+            this.victory.setPosition(100, 300);
         } else {
             playerHP -= 1;
             console.log('Player was scorched by a fireball');
+            this.youdied.setPosition(100, 300);
         }
     } else if (keySpace.isDown) {
         this.player.anims.play('attacking', true);
         console.log('Player is attacking');
         if (pickAttack < 5) {
             console.log('Player parried a fireball');
+            this.victory.setPosition(100, 300);
         } else {
             playerHP -= 1;
             console.log('Player was dented by a hammer');
+            this.victory.setPosition(100, 300);
         }
     } else {
         this.player.anims.play('idle', true);
