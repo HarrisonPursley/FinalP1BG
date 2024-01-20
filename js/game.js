@@ -25,6 +25,7 @@ var sprite;
 game.preload = function () {
 
     this.load.image('titlecard', 'assets/UI/TitleCard.png');
+    this.load.image('controls', 'assets/UI/Controls.png');
     this.load.image('play', 'assets/UI/play.png');
     this.load.image('volumeoff', 'assets/UI/VolumeOff.png');
     this.load.image('volumeon', 'assets/UI/VolumeOn.png');
@@ -233,6 +234,8 @@ game.create = function () {
         this.youdied.setOrigin(0, 0);
     this.again = this.add.sprite(-1000, 300, 'again');
         this.again.setOrigin(0, 0);
+    this.controls = this.add.sprite(10, 150, 'controls');
+        this.controls.setOrigin(0, 0);
 };
 
 
