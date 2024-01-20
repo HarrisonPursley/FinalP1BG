@@ -1,0 +1,27 @@
+export default class PlayerController
+{
+	/** @type {{ [key: string]: { enter: () => void } }} */
+	states
+
+	/** @type {{ enter: () => void }} */
+	currentState
+
+	/**
+	 * @param {Phaser.Physics.Arcade.Sprite} player 
+	 */
+	constructor(player)
+	{
+		this.states = {
+			// TODO: add states
+		}
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 */
+	setState(name)
+	{
+		// TODO: switch from the previous state
+	}
+}

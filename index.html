@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BRUTE FORCE</title>
+    <script src="phaser.js">
+    </script>
+    <style>
+        canvas{
+            width: 100%;   
+        }
+    </style>
+</head>
+<body>
+    <script src="/js/phaser.min.js"></script>
+    <script src="/js/game.js"></script>
+    <script type="text/javascript">
+        var config = {
+            type: Phaser.AUTO,
+            width: 656,
+            height: 528,
+            pixelArt: true,
+            parent: 'phaser-game',
+            scene: {
+                preload: preload,
+                create: create,
+                update: update,
+            }
+        };
+        var game = new Phaser.Game(config);
+        function preload() {}
+        function create() {}
+        function update() {}
+        physics:{
+        	default:'arcade',
+        	arcade:{debug:true}
+        }
+    </script>
+</body>
+</html>
